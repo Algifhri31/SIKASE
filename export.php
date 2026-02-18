@@ -1,6 +1,20 @@
 <?php 
+session_start();
 require_once("koneksi.php");
 error_reporting(0);
+
+// Cek Login
+if (!isset($_SESSION['username']) || !isset($_SESSION['level']) || $_SESSION['level'] !== 'admin') {
+    header("location: login.php");
+    exit();
+}
+
+// Cek Role Super Admin
+$role = isset($_SESSION['role']) ? $_SESSION['role'] : 'admin';
+if ($role !== 'super_admin') {
+    echo "<script>alert('Anda tidak memiliki akses ke halaman ini! Halaman ini hanya untuk Super Admin.'); window.location.href='admin_dashboard_fixed.php';</script>";
+    exit();
+}
 ?>
 <html>
 <head>

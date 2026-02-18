@@ -22,24 +22,28 @@ if (isset($_POST['simpan'])) {
 	$path     = "images/".$fotobaru;
 }
 
+// Cek apakah ID sudah ada
+$sql = "SELECT * FROM tb_karyawan WHERE id_karyawan = '".$id_karyawan."'";
+$tambah = mysqli_query($koneksi, $sql);
+
+if (mysqli_num_rows($tambah) > 0) {
+	echo "<script>alert('Data Dengan No.KSE = ".$id_karyawan." sudah ada') </script>";
+	echo "<script>window.location.href = \"datakaryawan.php\" </script>";
+	exit();
+}
+
+// Upload file
 if (move_uploaded_file($tmp, $path)) {
-	$sql = "SELECT * FROM tb_karyawan WHERE id_karyawan = '".$id_karyawan."'";
-	$tambah = mysqli_query($koneksi, $sql);
-}
+	$query = "INSERT INTO tb_karyawan set id_karyawan='$id_karyawan', username='$username', password='$password', nama='$nama', tmp_tgl_lahir='$tmp_tgl_lahir', jenkel='$jenkel', agama='$agama', alamat='$alamat', no_tel='$no_tel', jabatan='$jabatan', foto='$fotobaru'";
+	$result = mysqli_query($koneksi, $query);
 
-if ($row = mysqli_fetch_row($tambah)) {
-echo "<script>alert('Data Dengan NIP = ".$id_karyawan." sudah ada') </script>";
-		echo "<script>window.location.href = \"datakaryawan.php\" </script>";
-
-}
-
-$query = "INSERT INTO tb_karyawan set id_karyawan='$id_karyawan', username='$username', password='$password', nama='$nama', tmp_tgl_lahir='$tmp_tgl_lahir', jenkel='$jenkel', agama='$agama', alamat='$alamat', no_tel='$no_tel', jabatan='$jabatan', foto='$fotobaru'";
-mysqli_query($koneksi, $query);
-
-if ($query) {
-	header("location: datakaryawan.php");
-}else{
-	echo "gagal";
+	if ($result) {
+		header("location: datakaryawan.php");
+	} else {
+		echo "gagal menyimpan data";
+	}
+} else {
+	echo "gagal upload file";
 }
 
  ?>

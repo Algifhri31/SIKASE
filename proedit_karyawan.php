@@ -29,7 +29,9 @@ if (isset($_POST['ubahdata'])) {
 
 //proses hapus gambar
       $file = "images/".$hapus_f['foto'];
-      unlink($file);//nama variabel yang ada di server
+      if (file_exists($file) && !empty($hapus_f['foto'])) {
+          unlink($file);//nama variabel yang ada di server
+      }
 
       // Proses ubah data ke Database
       $sql_f = "UPDATE tb_karyawan set username='$username', password='$password', nama='$nama', tmp_tgl_lahir='$tmp_tgl_lahir', jenkel='$jenkel', agama='$agama', alamat='$alamat', no_tel='$no_tel', jabatan='$jabatan', foto ='$fotobaru' WHERE id_karyawan='$id_karyawan'";

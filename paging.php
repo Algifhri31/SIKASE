@@ -18,13 +18,7 @@ $total_halaman = ceil($jumlah_data / $batas);
 $data_karyawan = mysqli_query($koneksi, "SELECT * FROM tb_karyawan LIMIT $halaman_awal, $batas");
 $nomor = $halaman_awal+1;
 
-if (isset($_GET['cari'])) {
-	$cari = $_GET['cari'];
-
-	$data = mysqli_query($koneksi, "SELECT * FROM tb_karyawan WHERE nama LIKE '%".$cari."%'");
-}else{
-	$data = mysqli_query($koneksi, "SELECT * FROM tb_karyawan");
-}
+// Pencarian sudah ditangani di atas, tidak perlu duplikasi query
 
 
 

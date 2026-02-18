@@ -9,10 +9,10 @@ if (isset($_POST['simpan'])) {
 }
 
 $save = "INSERT INTO tb_daftar SET username='$username', password='$password'";
-mysqli_query($koneksi, $save);
+$result = mysqli_query($koneksi, $save);
 
-if ($save) {
-	echo "sukses";
+if ($result) {
+	header("location: datauser.php");
 }else{
 	echo "gagal disimpan";
 }

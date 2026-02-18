@@ -469,7 +469,9 @@ session_start();
                                                 <td>NIP</td>
                                                 <td>
                                                 
-                                                <input type="text" class="form-control" name="id_karyawan" autocomplete="off" size="25px" maxlength="25px">    
+                                                <input type="text" class="form-control" name="id_karyawan" autocomplete="off" size="25px" maxlength="20"
+                                                       pattern="^KSE\\.\\d{4}\\.\\d{5}$" placeholder="Contoh: KSE.0000.00000">    
+                                                <small class="form-text text-muted">Gunakan format dengan titik: KSE.0000.00000</small>
                                                 
                                             </td>
                                             </tr>

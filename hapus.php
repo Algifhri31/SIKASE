@@ -9,7 +9,9 @@ $hapus_f = mysqli_fetch_array($query);
 
 //proses hapus gambar
 $file = "images/".$hapus_f['foto'];
-unlink($file);
+if (file_exists($file) && !empty($hapus_f['foto'])) {
+    unlink($file);
+}
 
 $sql_h = "DELETE FROM tb_karyawan WHERE id_karyawan = '$id' ";
 $hapus = mysqli_query($koneksi, $sql_h);

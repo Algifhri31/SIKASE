@@ -1,7 +1,7 @@
 <?php
+session_start();
 
-
-include 'koneksi.php';
+require_once('../../../koneksi.php');
 
 //proses input
 if (isset($_POST['simpan'])) {
@@ -20,7 +20,7 @@ if (isset($_POST['simpan'])) {
     $foto     = $_FILES['inpfoto']['name'];
     $tmp      = $_FILES['inpfoto']['tmp_name'];
     $fotobaru = date('dmYHis').$foto;
-    $path     = "../images/".$fotobaru;
+    $path     = "../../../images/".$fotobaru;
 
     if(move_uploaded_file($tmp, $path)){ //awal move upload file
       $sql    = "SELECT * FROM tb_karyawan WHERE id_karyawan = '".$id_karyawan."' ";
@@ -28,7 +28,7 @@ if (isset($_POST['simpan'])) {
       $hapus_f = mysqli_fetch_array($query);
 
 //proses hapus gambar
-      $file = "../images/".$hapus_f['foto'];
+      $file = "../../../images/".$hapus_f['foto'];
       unlink($file);//nama variabel yang ada di server
 
       // Proses ubah data ke Database

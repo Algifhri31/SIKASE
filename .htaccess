@@ -1,0 +1,3 @@
+DirectoryIndex login.php
+RewriteEngine On
+RewriteRule ^$ login.php [L]

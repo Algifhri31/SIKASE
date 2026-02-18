@@ -136,7 +136,7 @@ error_reporting(0);
                                 <i class="fas fa-chart-bar"></i>Data Beswan</a>
                         </li>
                         <li>
-                            <a href="table.html">
+                            <a href="datauser.php">
                                 <i class="fas fa-table"></i>Data Admin</a>
                         </li>
                         <li>

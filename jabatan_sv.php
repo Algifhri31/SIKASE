@@ -6,9 +6,9 @@ if (isset($_POST['simpan'])) {
 }
 
 $save = "INSERT INTO tb_jabatan SET jabatan='$jabatan'";
-mysqli_query($koneksi, $save);
+$result = mysqli_query($koneksi, $save);
 
-if ($save) {
+if ($result) {
 	header("location: datajabatan.php");
 }else{
 	echo "gagal disimpan";

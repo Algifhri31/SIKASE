@@ -244,6 +244,11 @@ error_reporting(0);
                                                 <td><input type="reset" name="" value="Batal" class="btn btn-danger"></td>
                                             </tr>
                                             
+                                                                                     <td>
+    <a href="https://drive.google.com/drive/folders/1wxQLz4lK1xdsrp2w5dAJQD3HtmPawHZz" class="btn btn-primary" target="_blank">
+        Upload Gdrive
+    </a>
+</td>
                                       </tbody>
                                     </table>
                                         </div>

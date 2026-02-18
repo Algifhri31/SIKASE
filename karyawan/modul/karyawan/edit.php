@@ -28,7 +28,7 @@ error_reporting(0);
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="../../../vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
     <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
@@ -81,7 +81,7 @@ error_reporting(0);
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
-                   <h1>Karyawan</h1>
+                   <h1>Beswan</h1>
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
@@ -114,7 +114,7 @@ error_reporting(0);
                                 
                                  <?php
                                     $id = $_SESSION['idsi'];
-                                    include '../koneksi.php';
+                                    include '../../../koneksi.php';
                                     $sql = "SELECT * FROM tb_karyawan WHERE id_karyawan = '$id'";
                                     $query = mysqli_query($koneksi, $sql);
                                     $r = mysqli_fetch_array($query);
@@ -190,7 +190,7 @@ error_reporting(0);
                         <!-- FORM -->
                         <div class="row">
                            <div class="table-responsive table--no-card m-b-30">
-                            <form action="?m=karyawan&s=update" method="post" enctype="multipart/form-data">
+                            <form action="update.php" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                 	
                                 	<?php
@@ -286,7 +286,7 @@ error_reporting(0);
                                            </tr>
 
                                            <tr>
-                                           	<td>Jabatan</td>
+                                           	<td>Divisi</td>
                                            	<td>
                                            		<select class="form-control" name="jabatan">
                                                 <?php 
